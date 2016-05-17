@@ -1,0 +1,20 @@
+"message","en","ja","vi"
+"address","Address","住所","Địa chỉ"
+"back","Back","戻る","Quay lại"
+"company","Company","会社","Công ty"
+"company_create","Register company","会社新規登録","Đăng ký công ty mới"
+"company_create_confirm","Company register confirmmation","会社新規登録の確認","Xác nhân đăng ký công ty mới"
+"company_detail","Company detail","会社情報詳細","Thông tin công ty"
+"confirm","Confirm","確認","Xác nhận"
+"confirm_delete","Are you sure to delete?","本当に削除しますか？","Xóa thật không?"
+"create","Create","新規作成","Tạo mới"
+"delete","Delete","削除","Xóa"
+"edit","Edit","編集","Sửa đổi"
+"flash_success_company_created","Company has been registered.","会社が新規登録されました．","Công ty đã được đăng ký."
+"flash_success_company_deleted","Company has been deleted.","会社が削除されました．","Công ty đã bị xóa."
+"flash_success_company_updated","Company has been updated.","会社情報が更新されました．","Thông tin công ty đã được cập nhật."
+"is_required","is required.","は必須です．","là bắt buộc."
+"message_1_same","Message 1","Message 1",
+"message_2","Message 2","メッセージ 2",
+"message_3_with_param","Message 3 with {param} param","パラメータ {param} が指定されたメッセージ",
+"name","Name","名前","Tên"

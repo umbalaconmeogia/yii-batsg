@@ -1,0 +1,17 @@
+.border_bottom td {
+   border-bottom: 1px solid #ccc;
+}
+.even {
+  background-color: #F8F8F8;
+}
+.odd {
+  background-color: #E5F1F4;
+}
+#header-links {
+  float: right;
+  text-align: right;
+}
+#logo a {
+  text-decoration: none;
+  color: black;
+}

@@ -1,0 +1,21 @@
+#summary General information about the library.
+
+= Introduction =
+
+This document contains the introduction about the library *yii-batsg* and the sample code.
+
+= Details =
+
+*yii-batsg* is an extension for *yii framework*. It contains serveral classes (for utility function and some work flow) that I usually use.
+
+The project *yii-batsg* is a application based on *yii framework*. It contains the yii-batsg extension code (placed in protected/extensions/batsg) and the demonstration code (the application itself). You can find the usage of the extension classes in the demonstration code and in the unit testing code.
+
+What you may find useful:
+  * How to import some value in config/main.php to config/console.php: see [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/config/console.php console.php]
+  * How to imlement a simple data management workflow (index/create/update/confirm/view/delete) using [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/extensions/batsg/controllers/SimpleBaseController.php SimpleBaseController]: see [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/controllers/admin/CompanyController.php CompanyController.php] for the example.
+  * How to implement multilinguaga web pages: see MultilinguaStaticPart
+  * How to use [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/extensions/batsg/Y.php Y] class: see [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/tests/unit/batsg/YTest.php YTest.php]
+  * How to use [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/extensions/batsg/HDateTime.php HDateTime] class: see [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/tests/unit/batsg/HDateTimeTest.php HDateTimeTest.php]
+  * How to use [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/extensions/batsg/HExcel.php HExcel] class: see [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/tests/unit/batsg/HDateTimeTest.php HExcelTest.php]
+  * How to use [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/extensions/batsg/HJapanese.php HJapanese] class: see [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/tests/unit/batsg/HJapaneseTest.php HJapaneseTest.php]
+  * How to use [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/extensions/batsg/HRandom.php HRandom] class: see [http://code.google.com/p/yii-batsg/source/browse/trunk/yii-batsg/protected/tests/unit/batsg/HRandomTest.php HRandomTest.php]

@@ -1,0 +1,13 @@
+CREATE TABLE tbl_company (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  address TEXT
+);
+
+CREATE TABLE tbl_employee (
+  id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+  company_id INTEGER NOT NULL,
+  name TEXT NOT NULL,
+  age INTEGER NOT NULL,
+  FOREIGN KEY(company_id) REFERENCES tbl_company(id)
+);
