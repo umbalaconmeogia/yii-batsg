@@ -262,7 +262,7 @@ class HJapanese
    */
   public static function halfWidthToFullWidth($str)
   {
-    return mb_convert_kana($str, 'R');
+    return mb_convert_kana($str, 'AK');
   }
 
   /**
