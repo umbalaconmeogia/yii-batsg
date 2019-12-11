@@ -7,7 +7,7 @@ class HJapanese
   const DATETIME_HOUR = '時';
   const DATETIME_MINUTE = '分';
   const DATETIME_SECOND = '秒';
-
+  
   /**
    * @var array Name of week days (as value of date('w'): 0 for Sunday, 1 for Monday, etc).
    */
@@ -19,11 +19,11 @@ class HJapanese
   public static $fullWidthDigits = array(
     '０', '１', '２', '３', '４', '５', '６', '７', '８', '９'
   );
-
+  
   public static $fullWidthDigitsToHalfWidth = array(
     '０' => 0, '１' => 1, '２' => 2, '３' => 3, '４' => 4, '５' => 5, '６' => 6, '７' => 7, '８' => 8, '９' => 9
   );
-
+  
   /**
    * Replace all full width digits by half with digits in a string.
    * @param mixed $subject a string or array of string to be searched and replaced.
@@ -34,7 +34,7 @@ class HJapanese
     $subject = str_replace(self::$fullWidthDigits, self::$halfWidthDigits, $subject);
     return $subject;
   }
-
+  
   /**
    * Replace all half width digits by full with digits in a string.
    * @param mixed $subject a string or array of string to be searched and replaced.
@@ -45,7 +45,7 @@ class HJapanese
     $subject = str_replace(self::$halfWidthDigits, self::$fullWidthDigits, $subject);
     return $subject;
   }
-
+  
   /**
    * Parse date time from a string.
    * @param string $dateTime String that contain 年, 月, 日, 時, 分, 秒
@@ -117,13 +117,14 @@ class HJapanese
    * Get the Japanese era calendar year of a specified year.
    * For example, from 1980 to 昭和 and 55.
    * Currently, this is not sure to work with the year before 1970.
-   *
+   * 
    * @param HDateTime $dateTime
    * @param string $eraName
    * @param int $yearNumber
+   * @param string $yearFormat Use '%s%02d' to add leading zero. Default is '%s%d', which doesn't have leading zero.
    * @return string String of era name and year number, of NULL if cannot calculate.
    */
-  public static function getJapaneseYear($dateTime, &$eraName, &$yearNumber)
+  public static function getJapaneseYear($dateTime, &$eraName = NULL, &$yearNumber = NULL, $yearFormat = '%s%d')
   {
     $calendarPoints = array (
       array("2019/05/01", "令和"),
@@ -139,27 +140,27 @@ class HJapanese
         $point = HDateTime::createFromString($calendarPoint[0]);
         $eraName = $calendarPoint[1];
         $yearNumber = $dateTime->getYear() - $point->getYear() + 1;
-        return "{$eraName}{$yearNumber}年";
+        return sprintf($yearFormat, $eraName, $yearNumber);
       }
     }
     return NULL;
   }
-
   /**
    * 和暦変換用の関数: 平成xx年yy月zz日
    * @param mixed $dateTime string or HDateTime
+   * @param string $yearFormat
    * @param string $monthDayFormat the format string for month and day. For example "m月d日" or "n月j日"
    * @param string $weekDayFormat "(w)" or "w曜日"
    * @return string
    */
-  public static function toJapaneseCalendar($dateTime, $monthDayFormat = 'm月d日', $weekDayFormat = NULL)
+  public static function toJapaneseCalendar($dateTime, $yearFormat = '%s%d年', $monthDayFormat = 'n月j日', $weekDayFormat = NULL)
   {
     $result = NULL;
 
     if (!$dateTime instanceof HDateTime) {
       $dateTime = HDateTime::createFromString($dateTime);
     }
-    $japaneseYear = self::getJapaneseYear($dateTime, $eraName, $yearNumber);
+    $japaneseYear = self::getJapaneseYear($dateTime, $eraName, $yearNumber, $yearFormat);
     if ($japaneseYear) {
       $result = $japaneseYear . $dateTime->toString($monthDayFormat);
       if ($weekDayFormat) {
@@ -170,7 +171,7 @@ class HJapanese
     }
     return $result;
   }
-
+  
   public static function japaneseWeekDay($dateTime)
   {
     if (!$dateTime instanceof HDateTime) {
@@ -195,7 +196,7 @@ class HJapanese
     }
     return $result;
   }
-
+  
   /**
    * Implementation of mb_str_replace based on the code of sakai at d4k dot net.
    * (http://php.net/manual/ja/ref.mbstring.php)
@@ -245,7 +246,7 @@ class HJapanese
   {
     return preg_match("/[ァ-ヾ]+/u", $str);
   }
-
+  
   /**
    * Convert string from Hiragana to Kanatakan.
    * @param string $str
@@ -255,7 +256,7 @@ class HJapanese
   {
     return mb_convert_kana($str, 'C');
   }
-
+  
   /**
    * Convert string from Hiragana to Kanatakan.
    * @param string $str
