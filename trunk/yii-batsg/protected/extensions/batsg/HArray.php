@@ -178,5 +178,17 @@ class HArray
   public static function get(&$var, $default = NULL) {
     return isset($var) ? $var : $default;
   }
+
+  /**
+   * Find an element in array by specified key.
+   * @param array $array Array to be searched.
+   * @param mixed $key Key to find.
+   * @param mixed $default Default value if not found.
+   * @return mixed
+   */
+  public static function getValue($array, $key, $default = NULL)
+  {
+    return isset($array[$key]) ? $array[$key] : $default;
+  }
 }
 ?>
