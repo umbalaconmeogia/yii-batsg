@@ -32,7 +32,7 @@ class HDownload
    */
   public static function downloadCsvArray($fileName, $contentArray, $writeUtf8Bom = TRUE)
   {
-    self::downloadCsv($fileName, self::createCsvFileContent($data, $writeUtf8Bom));
+    self::downloadCsv($fileName, self::createCsvFileContent($contentArray, $writeUtf8Bom));
   }
 
   /**
@@ -57,4 +57,3 @@ class HDownload
     return $buf;
   }
 }
-?>
